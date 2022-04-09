@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+//httpClient
+import { HttpClientModule } from '@angular/common/http';
+// Routing
 import { AppRoutingModule } from './app-routing.module';
+// Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -21,7 +24,8 @@ import { AboutComponent } from './pages/about/about.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
