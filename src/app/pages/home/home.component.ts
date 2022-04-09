@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionService } from 'src/app/services/question.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public jsonObj : any;
 
-  constructor() { }
+  constructor(private questionService: QuestionService) {
 
-  ngOnInit(): void {
+   }
+
+  async ngOnInit() {
+    this.jsonObj = await this.questionService.questionsQuery();
+    console.log(this.jsonObj);
   }
 
 }
