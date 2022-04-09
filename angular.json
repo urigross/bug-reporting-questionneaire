@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mastercard-test": {
+    "bug-reporting-questionneaire": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mastercard-test",
+            "outputPath": "dist/bug-reporting-questionneaire",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "mastercard-test:build:production"
+              "browserTarget": "bug-reporting-questionneaire:build:production"
             },
             "development": {
-              "browserTarget": "mastercard-test:build:development"
+              "browserTarget": "bug-reporting-questionneaire:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mastercard-test:build"
+            "browserTarget": "bug-reporting-questionneaire:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "mastercard-test"
+  "defaultProject": "bug-reporting-questionneaire"
 }
