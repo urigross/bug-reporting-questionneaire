@@ -1,0 +1,161 @@
+{
+    "questions": [
+        {
+            "_id": "r3kfkf",
+            "name": "question-1",
+            "type": "choice",
+            "title": "Question 1",
+            "question": "What kind of bug is it?",
+            "choices": [
+                {
+                    "name": "production-bug",
+                    "title": "Production bug",
+                    "value": 20
+                },
+                {
+                    "name": "development-bug",
+                    "title": "Development bug",
+                    "value": 10
+                }
+            ]
+        },
+        {
+            "_id": "sdij44",
+            "name": "question-2",
+            "type": "choice",
+            "title": "Question 2",
+            "question": "Is it preventing immediate whole site operating?",
+            "choices": [
+                {
+                    "name": "yes",
+                    "title": "Yes",
+                    "value": 30
+                },
+                {
+                    "name": "no",
+                    "title": "No",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "_id": "sdsj455",
+            "name": "question-3",
+            "type": "choice",
+            "title": "Question 3",
+            "question": "Is it a user interface related bug?",
+            "choices": [
+                {
+                    "name": "yes",
+                    "title": "Yes",
+                    "value": 5
+                },
+                {
+                    "name": "no",
+                    "title": "No",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "_id": "jkhk50",
+            "name": "question-4",
+            "type": "choice",
+            "title": "Question 4",
+            "question": "Is it user experience bug ?",
+            "choices": [
+                {
+                    "name": "yes",
+                    "title": "Yes",
+                    "value": 5
+                },
+                {
+                    "name": "no",
+                    "title": "No",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "_id": "jkfj9",
+            "name": "question-5",
+            "type": "choice",
+            "title": "Question 5",
+            "question": "Is it a currency rendering problem related?",
+            "choices": [
+                {
+                    "name": "yes",
+                    "title": "Yes",
+                    "value": 10
+                },
+                {
+                    "name": "no",
+                    "title": "No",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "_id": "0kh65",
+            "name": "question-6",
+            "type": "choice",
+            "title": "Question 6",
+            "question": "Is occurs on mobile devices?",
+            "choices": [
+                {
+                    "name": "yes",
+                    "title": "Yes",
+                    "value": 5
+                },
+                {
+                    "name": "no",
+                    "title": "No",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "_id": "dbk66e499",
+            "name": "question-7",
+            "type": "choice",
+            "title": "Question 7",
+            "question": "Is occurs on desktop devices?",
+            "choices": [
+                {
+                    "name": "yes",
+                    "title": "Yes",
+                    "value": 5
+                },
+                {
+                    "name": "no",
+                    "title": "No",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "_id": "0kh65",
+            "name": "question-7",
+            "type": "choice",
+            "title": "Question 7",
+            "question": "The bug occurs on a page that is:",
+            "choices": [
+                {
+                    "name": "hero-page",
+                    "title": "Hero page",
+                    "value": 20
+                },
+                {
+                    "name": "medium-page",
+                    "title": "Medium to low frequency visited page",
+                    "value": 10
+                },
+                {
+                    "name": "low-page",
+                    "title": "Rarely visited page",
+                    "value": 5
+                }
+            ]
+        }
+    ]
+}
