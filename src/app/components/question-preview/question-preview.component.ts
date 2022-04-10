@@ -22,15 +22,16 @@ export class QuestionPreviewComponent implements OnInit {
   @Output() onChoiceValue = new EventEmitter<number>();
   choiceControl = new FormControl('',Validators.required);
   // selectFormControl = new FormControl('', Validators.required);
-  choices: Choice[] = JSON.parse(JSON.stringify(this.question.choices));
+  choices: Choice[] = [];
+  choiceVal: number=0;
 
 
   constructor() { }
 
   ngOnInit(): void {
+    this.choices = JSON.parse(JSON.stringify(this.question.choices));
   }
   onToggleChoice():void{
-    console.log('toggle');
+    this.onChoiceValue.emit(this.choiceVal);
   }
-
 }

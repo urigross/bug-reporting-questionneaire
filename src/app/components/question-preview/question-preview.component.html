@@ -12,13 +12,13 @@
         <mat-error *ngIf="choiceControl.hasError('required')">This is a mandatory field. Choose to continue</mat-error>
     </mat-form-field>
 </div> -->
-<mat-card>
+<mat-card *ngIf="choices">
     <mat-card-content>
         <h2 class="example-h2">{{question.title}}</h2>
         <section class="question-section">
             <label class="question-margin">{{question.question}}</label>
-            <mat-radio-group [(ngModel)]="choices" (change)="onToggleChoice()">
-                <mat-radio-button *ngFor="let choice of question.choices" [value]="choice.value" class="example-margin">{{choice.title}}</mat-radio-button>
+            <mat-radio-group [(ngModel)]="choiceVal" (change)="onToggleChoice()">
+                <mat-radio-button *ngFor="let choice of choices" [value]="choice.value" class="example-margin">{{choice.title}}</mat-radio-button>
             </mat-radio-group>
         </section>
 

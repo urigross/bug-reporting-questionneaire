@@ -12,5 +12,8 @@ export class QuestionsListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onChoiceValue(data:number):void{
+    console.log(data);
+  }
 
 }
