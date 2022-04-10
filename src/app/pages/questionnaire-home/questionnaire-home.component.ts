@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from 'src/app/services/question.service';
+import { Question } from '../../components/models/question.model';
 
 @Component({
   selector: 'app-questionnaire-home',
@@ -8,12 +9,16 @@ import { QuestionService } from 'src/app/services/question.service';
 })
 export class QuestionnaireHomeComponent implements OnInit {
   public jsonObj : any;
+  public questions : Question[] = [];
 
   constructor(private questionService: QuestionService) { }
 
   async ngOnInit(): Promise<void> {
-    this.jsonObj = await this.questionService.questionsQuery();
-    console.log(this.jsonObj);
+    // this.questions await this.qu
+    // this.questionService.questionsQuery();
+    // this.jsonObj = await this.questionService.questionsQuery();
+    this.questions =  await this.questionService.questionsQuery();
+    console.log('these',this.questions)
   }
 
 }

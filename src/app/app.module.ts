@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './pages/about/about.component';
 import { QuestionnaireHomeComponent } from './pages/questionnaire-home/questionnaire-home.component';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
+import { QuestionPreviewComponent } from './components/question-preview/question-preview.component';
 
 
 
@@ -23,7 +24,8 @@ import { QuestionsListComponent } from './components/questions-list/questions-li
     HomeComponent,
     AboutComponent,
     QuestionnaireHomeComponent,
-    QuestionsListComponent
+    QuestionsListComponent,
+    QuestionPreviewComponent
   ],
   imports: [
     BrowserModule,
