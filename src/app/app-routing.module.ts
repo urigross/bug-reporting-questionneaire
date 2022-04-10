@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about.component';
 import { QuestionnaireHomeComponent } from './pages/questionnaire-home/questionnaire-home.component';
 
+
 const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: '', component: QuestionnaireHomeComponent}
