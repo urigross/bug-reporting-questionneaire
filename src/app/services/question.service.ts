@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Question } from '../components/models/question.model';
+import { Question } from '../models/question.model';
 import { BehaviorSubject, take } from 'rxjs';
 
 @Injectable({
