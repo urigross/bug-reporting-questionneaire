@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Question } from 'src/app/components/models/question.model';
+import { Question } from 'src/app/models/question.model';
 
 @Component({
   selector: 'app-question-preview',
@@ -10,7 +10,7 @@ export class QuestionPreviewComponent implements OnInit {
   @Input() question: Question =  {
     _id: '',
     name: '',
-    type: '',
+    isMultiChoice: false,
     title: '',
     question: '',
     choices: []

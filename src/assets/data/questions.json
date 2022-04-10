@@ -3,7 +3,7 @@
         {
             "_id": "r3kfkf",
             "name": "question-1",
-            "type": "choice",
+            "isMultiChoice": false,
             "title": "Question 1",
             "question": "What kind of bug is it?",
             "choices": [
@@ -22,7 +22,7 @@
         {
             "_id": "sdij44",
             "name": "question-2",
-            "type": "choice",
+            "isMultiChoice": false,
             "title": "Question 2",
             "question": "Is it preventing immediate whole site operating?",
             "choices": [
@@ -41,7 +41,7 @@
         {
             "_id": "sdsj455",
             "name": "question-3",
-            "type": "choice",
+            "isMultiChoice": false,
             "title": "Question 3",
             "question": "Is it a user interface related bug?",
             "choices": [
@@ -60,7 +60,7 @@
         {
             "_id": "jkhk50",
             "name": "question-4",
-            "type": "choice",
+            "isMultiChoice": false,
             "title": "Question 4",
             "question": "Is it user experience bug ?",
             "choices": [
@@ -79,7 +79,7 @@
         {
             "_id": "jkfj9",
             "name": "question-5",
-            "type": "choice",
+            "isMultiChoice": false,
             "title": "Question 5",
             "question": "Is it a currency rendering problem related?",
             "choices": [
@@ -98,7 +98,7 @@
         {
             "_id": "0kh65",
             "name": "question-6",
-            "type": "choice",
+            "isMultiChoice": false,
             "title": "Question 6",
             "question": "Is occurs on mobile devices?",
             "choices": [
@@ -117,7 +117,7 @@
         {
             "_id": "dbk66e499",
             "name": "question-7",
-            "type": "choice",
+            "isMultiChoice": false,
             "title": "Question 7",
             "question": "Is occurs on desktop devices?",
             "choices": [
@@ -136,7 +136,7 @@
         {
             "_id": "0kh65",
             "name": "question-8",
-            "type": "choice",
+            "isMultiChoice": false,
             "title": "Question 8",
             "question": "The bug occurs on a page that is:",
             "choices": [
