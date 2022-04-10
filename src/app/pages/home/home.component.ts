@@ -6,16 +6,9 @@ import { QuestionService } from 'src/app/services/question.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  public jsonObj : any;
+export class HomeComponent {
 
-  constructor(private questionService: QuestionService) {
+  constructor() {
 
    }
-
-  async ngOnInit() {
-    this.jsonObj = await this.questionService.questionsQuery();
-    console.log(this.jsonObj);
-  }
-
 }
