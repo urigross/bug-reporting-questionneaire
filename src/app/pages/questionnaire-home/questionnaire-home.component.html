@@ -1,1 +1,15 @@
-<app-questions-list *ngIf="questions" [questions]="questions"></app-questions-list>
+<div class="jambotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h2>Bug reporting questionnaire</h2>
+                <!-- <form [[formGroup]="questionnaire-form" ] (ngSubmit)="onSubmit()"> -->
+                    <app-questions-list *ngIf="questions" [questions]="questions"></app-questions-list>
+                <!-- </form> -->
+            </div>
+
+
+        </div>
+    </div>
+</div>

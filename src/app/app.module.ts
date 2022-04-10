@@ -8,12 +8,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
-// fonts
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './pages/about/about.component';
 import { QuestionnaireHomeComponent } from './pages/questionnaire-home/questionnaire-home.component';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
 import { QuestionPreviewComponent } from './components/question-preview/question-preview.component';
+// fonts
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// UI
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import { MatRadioModule } from '@angular/material/radio';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//forms
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+
+
 
 
 
@@ -31,7 +41,13 @@ import { QuestionPreviewComponent } from './components/question-preview/question
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
