@@ -11,6 +11,9 @@ import { HomeComponent } from './pages/home/home.component';
 // fonts
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './pages/about/about.component';
+import { QuestionnaireHomeComponent } from './pages/questionnaire-home/questionnaire-home.component';
+import { QuestionsListComponent } from './components/questions-list/questions-list.component';
+import { QuestionPreviewComponent } from './components/question-preview/question-preview.component';
 
 
 
@@ -19,7 +22,10 @@ import { AboutComponent } from './pages/about/about.component';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    QuestionnaireHomeComponent,
+    QuestionsListComponent,
+    QuestionPreviewComponent
   ],
   imports: [
     BrowserModule,
