@@ -4,6 +4,7 @@
             <h1 class="logo">Generic<span>App</span></h1>
             <span class="logo-span">By Uri Gross</span>
         </div>
+            
         <ul [ngClass]="mobileMenuOn?'active':''">
             <li>
                 <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="onCloseMenu()">Generic<span>App</span></a>
@@ -18,5 +19,9 @@
                 <fa-icon [icon]="faBars" (click)="onOpenMenu()"></fa-icon>
             </ng-template>
         </div>
+    </div>
+    <div class="progress-bar-container">
+        <label for="progress-bar">Form Progress</label>
+        <mat-progress-bar mode="determinate" value="{{progressBarScore}}"></mat-progress-bar>
     </div>
 </nav>

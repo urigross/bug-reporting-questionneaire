@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //forms
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -47,7 +48,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
