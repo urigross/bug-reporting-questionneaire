@@ -3,6 +3,7 @@ import { Question } from 'src/app/models/question.model';
 import { FormControl, Validators } from '@angular/forms';
 import { Choice } from 'src/app/models/choice.model';
 import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
+import { MultipleChoiceToEdit } from 'src/app/models/multipleChoiceToEdit.model';
 
 
 
@@ -24,7 +25,8 @@ export class QuestionPreviewComponent implements OnInit {
   @Output() onChosenChoice = new EventEmitter<ChoiceToEdit>();
   choiceControl = new FormControl('',Validators.required);
   choices: Choice[] = [];
-  markedChoice!: Choice;
+  currChoiceScore: number = 0;
+  multipleChoicesToEdit!: MultipleChoiceToEdit;
   choiceToEdit!: ChoiceToEdit;
 
 
@@ -34,7 +36,12 @@ export class QuestionPreviewComponent implements OnInit {
     this.choices = JSON.parse(JSON.stringify(this.question.choices));
   }
   onToggleChoice():void{
-    this.choiceToEdit = {_id:this.question._id, score: this.markedChoice.score}
-    this.onChosenChoice.emit(this.choiceToEdit);
+    if (this.question.isMultiChoice){
+      console.log('choices are:',this.choices)
+    }
+    else{
+      this.choiceToEdit = {_id:this.question._id, score: this.currChoiceScore}
+      this.onChosenChoice.emit(this.choiceToEdit);
+    }
   }
 }

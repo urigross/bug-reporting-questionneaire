@@ -143,7 +143,7 @@
                 {
                     "name": "hero-page",
                     "title": "Hero page",
-                    "score": 20
+                    "score": 15
                 },
                 {
                     "name": "medium-page",
@@ -154,6 +154,33 @@
                     "name": "low-page",
                     "title": "Rarely visited page",
                     "score": 5
+                }
+            ]
+        },
+        {
+            "_id": "dsdfss11",
+            "name": "question-9",
+            "isMultiChoice": true,
+            "title": "Question 9",
+            "question": "Are you:",
+            "choices": [
+                {
+                    "name": "mastercard-employee",
+                    "title": "MasterCard Employee",
+                    "score": 2,
+                    "isSelected": false
+                },
+                {
+                    "name": "programmer",
+                    "title": "A Programmer",
+                    "score": 2,
+                    "isSelected": false
+                },
+                {
+                    "name": "security-clearance-holder",
+                    "title": "Holds a security clearance",
+                    "score": 1,
+                    "isSelected": false
                 }
             ]
         }
