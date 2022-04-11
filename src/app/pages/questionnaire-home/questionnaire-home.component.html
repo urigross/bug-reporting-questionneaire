@@ -4,12 +4,17 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <h2>Bug reporting questionnaire</h2>
-                <!-- <form [[formGroup]="questionnaire-form" ] (ngSubmit)="onSubmit()"> -->
-                    <app-questions-list *ngIf="questions" [questions]="questions"></app-questions-list>
-                <!-- </form> -->
+                <form (submit)="onCalc()" #formVal="ngForm">
+                    <app-questions-list 
+                    *ngIf="questions" 
+                    [questions]="questions" 
+                    [formVal]="formVal" 
+                    (onEmitChoice)="onEmitChoice($event)"
+                     reqiured>
+                    </app-questions-list>
+                <button [disabled]="isFormUncompleted">Save</button>
+                </form>
             </div>
-
-
         </div>
     </div>
 </div>
