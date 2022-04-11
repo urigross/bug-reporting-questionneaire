@@ -11,6 +11,7 @@ export class QuestionService {
   constructor(private httpClient: HttpClient) { }
 
   async questionsQuery(): Promise<Question[]> {
+    // TODO: Add error catching
     const QUESTIONS_URL = "../../assets/data/questions.json";
     const ans = await this.httpClient.get(QUESTIONS_URL);
     return new Promise (resolve=>{
@@ -23,7 +24,6 @@ export class QuestionService {
         }
       )
     })
-    // TODO: Add error catching
     // ans.subscribe(
     //   (response: any) => {
     //     this._questions$.next(response) // gets the questions
@@ -34,9 +34,4 @@ export class QuestionService {
     //   }
     //   )
     }
-    
-  //   getQuestions(): Question[] {
-  //   console.log(this._questions$.getValue())
-  //   return this._questions$.getValue();
-  // }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
 import { QuestionService } from 'src/app/services/question.service';
+import { ScoreService } from 'src/app/services/score.service';
 import { Question } from '../../models/question.model';
 
 
@@ -14,7 +15,7 @@ export class QuestionnaireHomeComponent implements OnInit {
   public jsonObj : any;
   public questions : Question[] = [];
 
-  constructor(private questionService: QuestionService) { }
+  constructor(private questionService: QuestionService, private scroreService: ScoreService) { }
 
   async ngOnInit(): Promise<void> {
     // this.questions await this.qu
@@ -24,7 +25,9 @@ export class QuestionnaireHomeComponent implements OnInit {
     console.log('these',this.questions)
   }
   onEmitChoice(data:ChoiceToEdit):void{
-    console.log(data)
+    //console.log(data)
+    this.scroreService.save(data);
+    
   }
 
 }
