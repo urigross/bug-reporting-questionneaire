@@ -34,7 +34,7 @@ export class QuestionPreviewComponent implements OnInit {
     this.choices = JSON.parse(JSON.stringify(this.question.choices));
   }
   onToggleChoice():void{
-    this.choiceToEdit = {_id:this.question._id, value: this.markedChoice.score}
+    this.choiceToEdit = {_id:this.question._id, score: this.markedChoice.score}
     this.onChosenChoice.emit(this.choiceToEdit);
   }
 }

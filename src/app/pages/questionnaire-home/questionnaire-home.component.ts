@@ -3,6 +3,7 @@ import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
 import { QuestionService } from 'src/app/services/question.service';
 import { FormService } from 'src/app/services/form.service';
 import { Question } from '../../models/question.model';
+import { ScoreService } from 'src/app/services/score.service';
 
 
 
@@ -25,8 +26,7 @@ export class QuestionnaireHomeComponent implements OnInit {
     console.log('these',this.questions)
   }
   onEmitChoice(data:ChoiceToEdit):void{
-    //console.log(data)
-    this.formService.save(data);
+    this.formService.saveChoice(data);
     
   }
   onCalc():void{
