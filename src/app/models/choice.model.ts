@@ -1,6 +1,7 @@
 export interface Choice {
     name: string,
     title: string,
-    score: number
+    score: number,
+    isSelected?: boolean,
     txt?: string
 }

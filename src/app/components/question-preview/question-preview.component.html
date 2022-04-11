@@ -17,10 +17,16 @@
         <h2 class="example-h2">{{question.title}}</h2>
         <section class="question-section">
             <label class="question-margin">{{question.question}}</label>
-            <mat-radio-group [(ngModel)]="markedChoice" (change)="onToggleChoice()" #choice="ngModel" required>
-                <mat-radio-button  *ngFor="let choice of choices" [value]="choice" class="example-margin">{{choice.title}}</mat-radio-button>
-            </mat-radio-group>
-            <small [hidden]="choice.valid || (choice.pristine && !formVal.submitted)">Mandatory field. Please complete.</small>
+            <div *ngIf="question.isMultiChoice; else singleChoiceBlock" class="multiple-choice-container">
+                <mat-checkbox *ngFor="let choice of choices; let i = index" [(ngModel)]="choices[i].isSelected" (change)="onToggleChoice()">{{choice.title}}</mat-checkbox>
+            </div>
+            <!-- <mat-checkbox *ngFor="let choice of choices; let i = index" [(ngModel)]="markedChoices[i].isChosenInMultiple"></mat-checkbox> -->
+            <ng-template #singleChoiceBlock>
+                <mat-radio-group [(ngModel)]="currChoiceScore" (change)="onToggleChoice()" #choice="ngModel" required>
+                    <mat-radio-button *ngFor="let choice of choices" value="choice.score" class="example-margin">{{choice.title}}</mat-radio-button>
+                </mat-radio-group>
+                <small [hidden]="choice.valid || (choice.pristine && !formVal.submitted)">Mandatory field. Please complete.</small>
+            </ng-template>
         </section>
     </mat-card-content>
 </mat-card>
