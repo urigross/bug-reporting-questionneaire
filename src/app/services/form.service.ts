@@ -5,7 +5,7 @@ import { ChoiceToEdit } from '../models/choiceToEdit.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ScoreService {
+export class FormService {
   private _choices$ = new BehaviorSubject<ChoiceToEdit[]>([]);
 
   constructor() { }

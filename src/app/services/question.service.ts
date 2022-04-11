@@ -7,7 +7,7 @@ import { BehaviorSubject, take } from 'rxjs';
   providedIn: 'root'
 })
 export class QuestionService {
-  private _questions$ = new BehaviorSubject <Question[]>([]);
+  //private _questions$ = new BehaviorSubject <Question[]>([]);
   constructor(private httpClient: HttpClient) { }
 
   async questionsQuery(): Promise<Question[]> {
@@ -21,6 +21,7 @@ export class QuestionService {
       .subscribe(
         (data:any)=>{
           resolve(data.questions); // map questions
+          console.log('number questions',data.questions)
         }
       )
     })

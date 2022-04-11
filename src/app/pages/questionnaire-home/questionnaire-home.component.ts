@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
 import { QuestionService } from 'src/app/services/question.service';
-import { ScoreService } from 'src/app/services/score.service';
+import { FormService } from 'src/app/services/form.service';
 import { Question } from '../../models/question.model';
 
 
@@ -15,7 +15,7 @@ export class QuestionnaireHomeComponent implements OnInit {
   public jsonObj : any;
   public questions : Question[] = [];
 
-  constructor(private questionService: QuestionService, private scroreService: ScoreService) { }
+  constructor(private questionService: QuestionService, private formService: FormService) { }
 
   async ngOnInit(): Promise<void> {
     // this.questions await this.qu
@@ -26,8 +26,10 @@ export class QuestionnaireHomeComponent implements OnInit {
   }
   onEmitChoice(data:ChoiceToEdit):void{
     //console.log(data)
-    this.scroreService.save(data);
+    this.formService.save(data);
     
   }
-
+  onCalc():void{
+    console.log('Calculated');
+  }
 }

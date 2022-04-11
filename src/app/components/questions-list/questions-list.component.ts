@@ -9,6 +9,7 @@ import { Question } from 'src/app/models/question.model';
 })
 export class QuestionsListComponent implements OnInit {
 @Input() questions :Question[] = [];
+@Input() formVal :any;
 @Output() onEmitChoice = new EventEmitter<ChoiceToEdit>();
 constructor() { }
 

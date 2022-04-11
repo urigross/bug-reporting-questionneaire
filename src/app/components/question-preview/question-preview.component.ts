@@ -20,9 +20,9 @@ export class QuestionPreviewComponent implements OnInit {
     question: '',
     choices: []
   };
+  @Input() formVal:any;
   @Output() onChosenChoice = new EventEmitter<ChoiceToEdit>();
   choiceControl = new FormControl('',Validators.required);
-  // selectFormControl = new FormControl('', Validators.required);
   choices: Choice[] = [];
   markedChoice!: Choice;
   choiceToEdit!: ChoiceToEdit;
