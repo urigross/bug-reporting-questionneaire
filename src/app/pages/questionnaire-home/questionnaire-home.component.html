@@ -5,7 +5,7 @@
             <div class="col-md-4">
                 <h2>Bug reporting questionnaire</h2>
                 <!-- <form [[formGroup]="questionnaire-form" ] (ngSubmit)="onSubmit()"> -->
-                    <app-questions-list *ngIf="questions" [questions]="questions"></app-questions-list>
+                    <app-questions-list *ngIf="questions" [questions]="questions" (onEmitChoice)="onEmitChoice($event)"></app-questions-list>
                 <!-- </form> -->
             </div>
 

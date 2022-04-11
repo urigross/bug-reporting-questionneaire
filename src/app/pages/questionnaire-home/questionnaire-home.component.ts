@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
 import { QuestionService } from 'src/app/services/question.service';
 import { Question } from '../../models/question.model';
 
@@ -21,6 +22,9 @@ export class QuestionnaireHomeComponent implements OnInit {
     // this.jsonObj = await this.questionService.questionsQuery();
     this.questions =  await this.questionService.questionsQuery();
     console.log('these',this.questions)
+  }
+  onEmitChoice(data:ChoiceToEdit):void{
+    console.log(data)
   }
 
 }

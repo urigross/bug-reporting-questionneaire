@@ -17,10 +17,9 @@
         <h2 class="example-h2">{{question.title}}</h2>
         <section class="question-section">
             <label class="question-margin">{{question.question}}</label>
-            <mat-radio-group [(ngModel)]="choiceVal" (change)="onToggleChoice()">
-                <mat-radio-button *ngFor="let choice of choices" [value]="choice.value" class="example-margin">{{choice.title}}</mat-radio-button>
+            <mat-radio-group [(ngModel)]="markedChoice" (change)="onToggleChoice()">
+                <mat-radio-button *ngFor="let choice of choices" [value]="choice" class="example-margin">{{choice.title}}</mat-radio-button>
             </mat-radio-group>
         </section>
-
     </mat-card-content>
 </mat-card>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Question } from 'src/app/models/question.model';
 import { FormControl, Validators } from '@angular/forms';
 import { Choice } from 'src/app/models/choice.model';
+import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
 
 
 
@@ -19,11 +20,12 @@ export class QuestionPreviewComponent implements OnInit {
     question: '',
     choices: []
   };
-  @Output() onChoiceValue = new EventEmitter<number>();
+  @Output() onChosenChoice = new EventEmitter<ChoiceToEdit>();
   choiceControl = new FormControl('',Validators.required);
   // selectFormControl = new FormControl('', Validators.required);
   choices: Choice[] = [];
-  choiceVal: number=0;
+  markedChoice!: Choice;
+  choiceToEdit!: ChoiceToEdit;
 
 
   constructor() { }
@@ -32,6 +34,7 @@ export class QuestionPreviewComponent implements OnInit {
     this.choices = JSON.parse(JSON.stringify(this.question.choices));
   }
   onToggleChoice():void{
-    this.onChoiceValue.emit(this.choiceVal);
+    this.choiceToEdit = {_id:this.question._id, value: this.markedChoice.score}
+    this.onChosenChoice.emit(this.choiceToEdit);
   }
 }
