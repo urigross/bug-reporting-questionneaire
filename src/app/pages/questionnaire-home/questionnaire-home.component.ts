@@ -32,4 +32,7 @@ export class QuestionnaireHomeComponent implements OnInit {
   onCalc():void{
     console.log('Calculated');
   }
+  get isFormUncompleted(){
+    return this.formService.isFormUncompleted();
+  }
 }

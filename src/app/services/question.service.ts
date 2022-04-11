@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Question } from '../models/question.model';
 import { BehaviorSubject, take } from 'rxjs';
+import { FormService } from './form.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
   //private _questions$ = new BehaviorSubject <Question[]>([]);
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private formService: FormService) { }
 
   async questionsQuery(): Promise<Question[]> {
     // TODO: Add error catching
@@ -21,7 +22,8 @@ export class QuestionService {
       .subscribe(
         (data:any)=>{
           resolve(data.questions); // map questions
-          console.log('number questions',data.questions)
+          const questionsNum: number = data.questions.length;
+          this.formService.addQuestionsNum(questionsNum);
         }
       )
     })

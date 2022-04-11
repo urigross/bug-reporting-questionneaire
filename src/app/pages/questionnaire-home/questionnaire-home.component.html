@@ -12,8 +12,7 @@
                     (onEmitChoice)="onEmitChoice($event)"
                      reqiured>
                     </app-questions-list>
-                    {{formVal.valid}}
-                <button [disabled]="!formVal.valid">Save</button>
+                <button [disabled]="isFormUncompleted">Save</button>
                 </form>
             </div>
         </div>

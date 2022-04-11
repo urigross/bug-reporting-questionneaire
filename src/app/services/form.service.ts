@@ -7,6 +7,8 @@ import { ChoiceToEdit } from '../models/choiceToEdit.model';
 })
 export class FormService {
   private _choices$ = new BehaviorSubject<ChoiceToEdit[]>([]);
+  private _questionsNum$ = new BehaviorSubject<number>(0);
+
 
   constructor() { }
 
@@ -14,7 +16,7 @@ export class FormService {
     var choices: ChoiceToEdit[] = this._choices$.getValue();
     const choiceIdx: number = choices.findIndex(_choice => _choice._id === choice._id);
     choiceIdx === -1 ? this._add(choice, choices) : this._edit(choice, choices, choiceIdx);
-    console.log(this._choices$.getValue());
+    console.log('CHOICES:',this._choices$.getValue(), 'IDX',choiceIdx);
   }
   private _edit(choiceToEdit: ChoiceToEdit, choices: ChoiceToEdit[], idx: number):void{
     choices.splice(idx, 1, choiceToEdit);
@@ -25,7 +27,15 @@ export class FormService {
     choices.push(choiceToAdd);
     this._choices$.next(choices);
   }
+
+  addQuestionsNum(queNum: number):void{
+    this._questionsNum$.next(queNum);
+  }
   
+  isFormUncompleted():boolean{
+    console.log('this._questionsNum$',this._questionsNum$.getValue(),'this._choices$', this._choices$.getValue().length)
+    return this._questionsNum$.getValue() !== this._choices$.getValue().length;
+  }
 }
 
 
