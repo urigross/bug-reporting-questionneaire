@@ -9,6 +9,7 @@ import { ChoiceToSubmit } from '../models/choiceToSubmit.model';
 export class ScoreService {
   private _questionsNum$ = new BehaviorSubject<number>(0);
   private _formScore$ = new BehaviorSubject<number>(0);
+  private _formScoreToRender$ = this._formScore$.asObservable();
   constructor() { }
   
   
@@ -25,9 +26,8 @@ export class ScoreService {
     this._formScore$.next(formScore);
   }
 
-  getFormScore():number{
-   // console.log(this._formScore$.getValue());
-    return this._formScore$.getValue();
+  getFormScore(){
+    return this._formScoreToRender$;
   }
 
   getScoreForMultipleQuestion(choices:Choice[]):number{
