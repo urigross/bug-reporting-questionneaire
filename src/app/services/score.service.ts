@@ -9,35 +9,26 @@ import { ChoiceToSubmit } from '../models/choiceToSubmit.model';
 export class ScoreService {
   private _questionsNum$ = new BehaviorSubject<number>(0);
   private _formScore$ = new BehaviorSubject<number>(0);
+  constructor() { }
   
-
+  
   addQuestionsNum(queNum: number):void{
     this._questionsNum$.next(queNum);
   } 
-  
-  sumFormScore(choices: ChoiceToSubmit[]):void{
-    const formScore: number = choices.reduce(function(sum, choice){
+
+  calcFormScore(choices: ChoiceToSubmit[]):void{
+    console.log(choices);
+    const formScore: number = choices.reduce((sum, choice)=>{
       return sum + choice.score;
     },0);
+    console.log(formScore);
     this._formScore$.next(formScore);
   }
 
   getFormScore():number{
+   // console.log(this._formScore$.getValue());
     return this._formScore$.getValue();
   }
-
-  // getScoreForMultipleQuestion(choices:Choice[]):number{
-  //   const selectedChoicesNum = this._getSelectedChoicesNum(choices);
-  //   const seletcedChoicesNumber = this._getSelectedChoicesScore(choices);
-  //   if( selectedChoicesNum)
-  //   return selectedChoicesCount
-  // }
-
-  // private _getSelectedChoicesScore(choices:Choice[]): number{
-  //   const selectedScore: number = choices.filter((choice: Choice)=> choice.isSelected === true)
-  //     .reduce(function(sum, choice){return sum + choice.score},0)
-  //   return selectedScore;
-  // }
 
   getScoreForMultipleQuestion(choices:Choice[]):number{
     var selectedChoicesCount: number = 0;
@@ -50,5 +41,4 @@ export class ScoreService {
     });
     return selectedChoicesCount === 1 ? selectedChoicesScore /2 : selectedChoicesScore;
   }
-  constructor() { }
 }

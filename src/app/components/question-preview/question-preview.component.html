@@ -4,11 +4,11 @@
         <section class="question-section">
             <label class="question-margin">{{question.question}}</label>
             <div *ngIf="question.isMultiChoice; else singleChoiceBlock" class="multiple-choice-container">
-                <mat-checkbox *ngFor="let choice of choices; let i = index" [(ngModel)]="choices[i].isSelected" (change)="onToggleChoice()">{{choice.title}}</mat-checkbox>
+                <mat-checkbox *ngFor="let choice of choices;trackBy: trackElement; let i = index" [(ngModel)]="choices[i].isSelected" (change)="onToggleChoice()">{{choice.title}}</mat-checkbox>
             </div>
             <ng-template #singleChoiceBlock>
                 <mat-radio-group [(ngModel)]="currChoiceScore" (change)="onToggleChoice()" #choice="ngModel" required>
-                    <mat-radio-button *ngFor="let choice of choices" value="choice.score" class="example-margin">{{choice.title}}</mat-radio-button>
+                    <mat-radio-button *ngFor="let choice of choices; trackBy: trackElement" [value]="choice.score" class="example-margin">{{choice.title}}</mat-radio-button>
                 </mat-radio-group>
                 <small [hidden]="choice.valid || (choice.pristine && !formVal.submitted)">Mandatory field. Please complete.</small>
             </ng-template>
