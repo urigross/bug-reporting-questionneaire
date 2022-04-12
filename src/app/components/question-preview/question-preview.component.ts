@@ -27,6 +27,7 @@ export class QuestionPreviewComponent implements OnInit {
   choices: Choice[] = [];
   currChoiceScore: number = 0;
   choiceToSubmit!: ChoiceToSubmit;
+  deleteChoice: boolean = false;
 
 
   constructor(private scoreService: ScoreService) { }
@@ -37,8 +38,13 @@ export class QuestionPreviewComponent implements OnInit {
   onToggleChoice():void{
     if (this.question.isMultiChoice){
       this.currChoiceScore = this.scoreService.getScoreForMultipleQuestion(this.choices);
+      this.deleteChoice = !this._isChoiceChecked(this.choices);
     }
-    this.choiceToSubmit = {_id:this.question._id, score: this.currChoiceScore}
+    this.choiceToSubmit = {_id:this.question._id, score: this.currChoiceScore, isDeleted: this.deleteChoice}
+    console.log('this.choiceToSubmit',this.choiceToSubmit)
     this.onEmitChoice.emit(this.choiceToSubmit);
+  }
+  private _isChoiceChecked(choices:Choice[]):boolean{
+    return choices.some(choices=>choices.isSelected)
   }
 }

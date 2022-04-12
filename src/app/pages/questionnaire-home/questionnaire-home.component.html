@@ -12,7 +12,7 @@
                     (choiceToSubmit)="onEmitChoice($event)"
                      reqiured>
                     </app-questions-list>
-                <button [disabled]="isFormUncompleted">Save</button>
+                <button [disabled]="!isFormCompleted">Save</button>
                 </form>
             </div>
         </div>

@@ -1,4 +1,5 @@
 export interface ChoiceToSubmit {
     _id: string,
-    score: number,    
+    score: number,
+    isDeleted: boolean    
 }
