@@ -13,26 +13,22 @@ import { ScoreService } from 'src/app/services/score.service';
   styleUrls: ['./questionnaire-home.component.scss'],
 })
 export class QuestionnaireHomeComponent implements OnInit {
-  public jsonObj : any;
-  public questions : Question[] = [];
+  public jsonObj: any;
+  public questions: Question[] = [];
 
   constructor(private questionService: QuestionService, private formService: FormService) { }
 
   async ngOnInit(): Promise<void> {
-    // this.questions await this.qu
-    // this.questionService.questionsQuery();
-    // this.jsonObj = await this.questionService.questionsQuery();
-    this.questions =  await this.questionService.questionsQuery();
-    console.log('these',this.questions)
+    this.questions = await this.questionService.questionsQuery();
+    console.log('these', this.questions)
   }
-  onEmitChoice(data:ChoiceToSubmit):void{
-    this.formService.saveChoice(data);
-    
+  onEmitChoice(choice: ChoiceToSubmit): void {
+    choice.isDeleted ? this.formService.deleteChoice(choice) : this.formService.saveChoice(choice);
   }
-  onCalc():void{
+  onCalc(): void {
     console.log('Calculated');
   }
-  get isFormUncompleted(){
-    return this.formService.isFormUncompleted();
+  get isFormCompleted() {
+    return this.formService.isFormCompleted();
   }
 }

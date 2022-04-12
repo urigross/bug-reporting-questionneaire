@@ -20,6 +20,17 @@ export class FormService {
     console.log('CHOICES:',this._choices$.getValue(), 'IDX',choiceIdx);
     this._submitScore();
   }
+
+  deleteChoice(choice: ChoiceToSubmit):void{
+    var choices: ChoiceToSubmit[] = this._choices$.getValue();
+    const choiceIdx: number = choices.findIndex(_choice => _choice._id === choice._id);
+    choiceIdx === -1 ? console.log('Error, could not find the Choice in form Service', choices) : this._remove(choices, choiceIdx);
+  }
+
+  private _remove(choices: ChoiceToSubmit[], idx: number):void{
+    choices.splice(idx,1);
+  }
+
   private _edit(choiceToEdit: ChoiceToSubmit, choices: ChoiceToSubmit[], idx: number):void{
     choices.splice(idx, 1, choiceToEdit);
     this._choices$.next(choices);
@@ -34,9 +45,9 @@ export class FormService {
     this._questionsNum$.next(queNum);
   }
   
-  isFormUncompleted():boolean{
+  isFormCompleted():boolean{
     console.log('this._questionsNum$',this._questionsNum$.getValue(),'this._choices$', this._choices$.getValue().length)
-    return this._questionsNum$.getValue() !== this._choices$.getValue().length;
+    return this._questionsNum$.getValue() === this._choices$.getValue().length;
   }
   private _submitScore():void{
     this.scoreService.sumFormScore(this._choices$.getValue());
