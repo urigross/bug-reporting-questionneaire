@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Choice } from '../models/choice.model';
-import { ChoiceToSubmit } from '../models/choiceToSubmit.model';
+import { Answer } from '../models/answer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class ScoreService {
     this._questionsNum$.next(queNum);
   } 
 
-  calcFormScore(choices: ChoiceToSubmit[]):void{
+  calcFormScore(choices: Answer[]):void{
     console.log(choices);
     const formScore: number = choices.reduce((sum, choice)=>{
       return sum + choice.score;

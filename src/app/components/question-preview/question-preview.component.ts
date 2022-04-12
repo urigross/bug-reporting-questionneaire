@@ -1,9 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Question } from 'src/app/models/question.model';
-import { FormControl, Validators } from '@angular/forms';
 import { Choice } from 'src/app/models/choice.model';
-import { ChoiceToSubmit } from 'src/app/models/choiceToSubmit.model';
-import { MultipleChoiceToEdit } from 'src/app/models/multipleChoiceToEdit.model';
+import { Answer } from 'src/app/models/answer.model';
 import { ScoreService } from 'src/app/services/score.service';
 
 
@@ -15,7 +13,7 @@ import { ScoreService } from 'src/app/services/score.service';
 })
 export class QuestionPreviewComponent implements OnInit {
   @Input() question: Question = {
-    _id: '',
+    id: '',
     name: '',
     isMultiChoice: false,
     title: '',
@@ -23,10 +21,10 @@ export class QuestionPreviewComponent implements OnInit {
     choices: []
   };
   @Input() formVal:any;
-  @Output() onEmitChoice = new EventEmitter<ChoiceToSubmit>();
+  @Output() onEmitAnswer = new EventEmitter<Answer>();
   choices: Choice[] = [];
-  currChoiceScore!: number;
-  choiceToSubmit!: ChoiceToSubmit;
+  currAnswerScore!: number;
+  Answer!: Answer;
   deleteChoice: boolean = false;
 
 
@@ -37,12 +35,16 @@ export class QuestionPreviewComponent implements OnInit {
   }
   onToggleChoice():void{
     if (this.question.isMultiChoice){
-      this.currChoiceScore = this.scoreService.getScoreForMultipleQuestion(this.choices);
+      this.currAnswerScore = this.scoreService.getScoreForMultipleQuestion(this.choices);
       this.deleteChoice = !this._isChoiceChecked(this.choices);
     }
-    this.choiceToSubmit = {_id:this.question._id, score: this.currChoiceScore, isDeleted: this.deleteChoice}
-    console.log('this.choiceToSubmit',this.choiceToSubmit)
-    this.onEmitChoice.emit(this.choiceToSubmit);
+    this.Answer = {
+      id:this.question.id, 
+      score: this.currAnswerScore, 
+      isDeleted: this.deleteChoice, 
+      choices: this.choices}
+    console.log('this.choiceToSubmit',this.Answer)
+    this.onEmitAnswer.emit(this.Answer);
   }
   private _isChoiceChecked(choices:Choice[]):boolean{
     return choices.some(choices=>choices.isSelected)
