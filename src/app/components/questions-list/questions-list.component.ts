@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
+import { ChoiceToSubmit } from 'src/app/models/choiceToSubmit.model';
 import { Question } from 'src/app/models/question.model';
 
 @Component({
@@ -10,13 +10,13 @@ import { Question } from 'src/app/models/question.model';
 export class QuestionsListComponent implements OnInit {
 @Input() questions :Question[] = [];
 @Input() formVal :any;
-@Output() onEmitChoice = new EventEmitter<ChoiceToEdit>();
+@Output() choiceToSubmit = new EventEmitter<ChoiceToSubmit>();
 constructor() { }
 
   ngOnInit(): void {
   }
-  onChosenChoice(data:ChoiceToEdit):void{
-    this.onEmitChoice.emit(data);
+  onEmitChoice(data:ChoiceToSubmit):void{
+    this.choiceToSubmit.emit(data);
   }
 
 }

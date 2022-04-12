@@ -9,7 +9,7 @@
                     *ngIf="questions" 
                     [questions]="questions" 
                     [formVal]="formVal" 
-                    (onEmitChoice)="onEmitChoice($event)"
+                    (choiceToSubmit)="onEmitChoice($event)"
                      reqiured>
                     </app-questions-list>
                 <button [disabled]="isFormUncompleted">Save</button>
