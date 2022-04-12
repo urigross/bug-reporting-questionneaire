@@ -1,17 +1,3 @@
-<!-- <pre *ngIf="question">{{question | json}}</pre> -->
-<!-- <div class="question-preview-container">
-    <h4>{{question.title}}</h4>
-    <mat-form-field appearance="fill">
-        <mat-label>{{question.question}}</mat-label>
-        <mat-select [formControl]="choiceControl" required>
-            <mat-option>--</mat-option>
-            <mat-option *ngFor="let choice of question.choices" [value]="choice.value">
-                {{choice.title}}
-            </mat-option>
-        </mat-select>
-        <mat-error *ngIf="choiceControl.hasError('required')">This is a mandatory field. Choose to continue</mat-error>
-    </mat-form-field>
-</div> -->
 <mat-card *ngIf="choices">
     <mat-card-content>
         <h2 class="example-h2">{{question.title}}</h2>
@@ -20,7 +6,6 @@
             <div *ngIf="question.isMultiChoice; else singleChoiceBlock" class="multiple-choice-container">
                 <mat-checkbox *ngFor="let choice of choices; let i = index" [(ngModel)]="choices[i].isSelected" (change)="onToggleChoice()">{{choice.title}}</mat-checkbox>
             </div>
-            <!-- <mat-checkbox *ngFor="let choice of choices; let i = index" [(ngModel)]="markedChoices[i].isChosenInMultiple"></mat-checkbox> -->
             <ng-template #singleChoiceBlock>
                 <mat-radio-group [(ngModel)]="currChoiceScore" (change)="onToggleChoice()" #choice="ngModel" required>
                     <mat-radio-button *ngFor="let choice of choices" value="choice.score" class="example-margin">{{choice.title}}</mat-radio-button>

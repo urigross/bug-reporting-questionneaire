@@ -2,8 +2,9 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Question } from 'src/app/models/question.model';
 import { FormControl, Validators } from '@angular/forms';
 import { Choice } from 'src/app/models/choice.model';
-import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
+import { ChoiceToSubmit } from 'src/app/models/choiceToSubmit.model';
 import { MultipleChoiceToEdit } from 'src/app/models/multipleChoiceToEdit.model';
+import { ScoreService } from 'src/app/services/score.service';
 
 
 
@@ -22,26 +23,22 @@ export class QuestionPreviewComponent implements OnInit {
     choices: []
   };
   @Input() formVal:any;
-  @Output() onChosenChoice = new EventEmitter<ChoiceToEdit>();
-  choiceControl = new FormControl('',Validators.required);
+  @Output() onEmitChoice = new EventEmitter<ChoiceToSubmit>();
   choices: Choice[] = [];
   currChoiceScore: number = 0;
-  multipleChoicesToEdit!: MultipleChoiceToEdit;
-  choiceToEdit!: ChoiceToEdit;
+  choiceToSubmit!: ChoiceToSubmit;
 
 
-  constructor() { }
+  constructor(private scoreService: ScoreService) { }
 
   ngOnInit(): void {
     this.choices = JSON.parse(JSON.stringify(this.question.choices));
   }
   onToggleChoice():void{
     if (this.question.isMultiChoice){
-      console.log('choices are:',this.choices)
+      this.currChoiceScore = this.scoreService.getScoreForMultipleQuestion(this.choices);
     }
-    else{
-      this.choiceToEdit = {_id:this.question._id, score: this.currChoiceScore}
-      this.onChosenChoice.emit(this.choiceToEdit);
-    }
+    this.choiceToSubmit = {_id:this.question._id, score: this.currChoiceScore}
+    this.onEmitChoice.emit(this.choiceToSubmit);
   }
 }

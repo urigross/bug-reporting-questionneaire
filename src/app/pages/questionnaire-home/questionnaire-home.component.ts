@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChoiceToEdit } from 'src/app/models/choiceToEdit.model';
+import { ChoiceToSubmit } from 'src/app/models/choiceToSubmit.model';
 import { QuestionService } from 'src/app/services/question.service';
 import { FormService } from 'src/app/services/form.service';
 import { Question } from '../../models/question.model';
@@ -25,7 +25,7 @@ export class QuestionnaireHomeComponent implements OnInit {
     this.questions =  await this.questionService.questionsQuery();
     console.log('these',this.questions)
   }
-  onEmitChoice(data:ChoiceToEdit):void{
+  onEmitChoice(data:ChoiceToSubmit):void{
     this.formService.saveChoice(data);
     
   }
