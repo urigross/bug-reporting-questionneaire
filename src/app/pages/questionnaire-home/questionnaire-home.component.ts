@@ -16,7 +16,7 @@ export class QuestionnaireHomeComponent implements OnInit {
   public jsonObj: any;
   public questions: Question[] = [];
 
-  constructor(private questionService: QuestionService, private formService: FormService) { }
+  constructor(private questionService: QuestionService, private formService: FormService, private scoreService: ScoreService) { }
 
   async ngOnInit(): Promise<void> {
     this.questions = await this.questionService.questionsQuery();
@@ -26,7 +26,7 @@ export class QuestionnaireHomeComponent implements OnInit {
     choice.isDeleted ? this.formService.deleteChoice(choice) : this.formService.saveChoice(choice);
   }
   onCalc(): void {
-    console.log('Calculated');
+    this.scoreService.calcFormScore(this.formService.getSubmittedChoices());
   }
   get isFormCompleted() {
     return this.formService.isFormCompleted();

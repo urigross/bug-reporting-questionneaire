@@ -8,7 +8,7 @@ import { ScoreService } from 'src/app/services/score.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private formService: FormService){}
+  constructor(private formService: FormService, private scoreService: ScoreService){}
 
   faBars = faBars;
   faTimes = faTimes;
@@ -22,6 +22,10 @@ export class HeaderComponent {
   }
   get progressBarScore(){
     return this.formService.getFormCompletionRate();
+  }
+
+  get formScore(){
+    return this.scoreService.getFormScore();
   }
 }
 

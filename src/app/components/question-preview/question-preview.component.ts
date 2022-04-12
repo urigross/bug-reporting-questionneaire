@@ -25,7 +25,7 @@ export class QuestionPreviewComponent implements OnInit {
   @Input() formVal:any;
   @Output() onEmitChoice = new EventEmitter<ChoiceToSubmit>();
   choices: Choice[] = [];
-  currChoiceScore: number = 0;
+  currChoiceScore!: number;
   choiceToSubmit!: ChoiceToSubmit;
   deleteChoice: boolean = false;
 
@@ -46,5 +46,8 @@ export class QuestionPreviewComponent implements OnInit {
   }
   private _isChoiceChecked(choices:Choice[]):boolean{
     return choices.some(choices=>choices.isSelected)
+  }
+  trackElement(index: number, element: any) {
+    return element ? element.guid : null
   }
 }
