@@ -43,7 +43,6 @@ export class QuestionPreviewComponent implements OnInit {
       score: this.currAnswerScore, 
       isDeleted: this.deleteChoice, 
       choices: this.choices}
-    console.log('this.choiceToSubmit',this.Answer)
     this.onEmitAnswer.emit(this.Answer);
   }
   private _isChoiceChecked(choices:Choice[]):boolean{

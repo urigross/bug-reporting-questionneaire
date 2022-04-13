@@ -21,7 +21,7 @@ export class QuestionnaireHomeComponent implements OnInit {
     this.questions = await this.questionService.questionsQuery();
     console.log('these', this.questions)
   }
-  onEmitAnswer(answer: any): void {
+  onEmitAnswer(answer: Answer): void {
     answer.isDeleted ? this.formService.deleteAnswer(answer) : this.formService.saveAnswer(answer);
   }
   onCalc(): void {

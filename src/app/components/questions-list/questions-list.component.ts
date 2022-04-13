@@ -10,13 +10,13 @@ import { Question } from 'src/app/models/question.model';
 export class QuestionsListComponent implements OnInit {
 @Input() questions :Question[] = [];
 @Input() formVal :any;
-@Output() Answer = new EventEmitter<Answer>();
+@Output() answerToEmit = new EventEmitter<Answer>();
 constructor() { }
 
   ngOnInit(): void {
   }
   onEmitAnswer(data:Answer):void{
-    this.Answer.emit(data);
+    this.answerToEmit.emit(data);
   }
 
 }

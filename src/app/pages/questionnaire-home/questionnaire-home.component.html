@@ -9,7 +9,7 @@
                     *ngIf="questions" 
                     [questions]="questions" 
                     [formVal]="formVal" 
-                    (answerToSubmit)="onEmitAnswer($event)"
+                    (answerToEmit)="onEmitAnswer($event)"
                      reqiured>
                     </app-questions-list>
                 <button [disabled]="!isFormCompleted">Save</button>
