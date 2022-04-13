@@ -5,13 +5,13 @@
             <label class="question-margin">{{question.question}}</label>
             <div class="multi-choice-container" *ngIf="question.isMultiChoice; else singleChoiceBlock">
                 <mat-checkbox *ngFor="let choice of answer.choices;trackBy: trackElement; let i = index" [(ngModel)]="answer.choices[i].isSelected" (change)="onToggleChoice()">{{choice.title}}</mat-checkbox>
+                <input type="text" id="choice-text" placeholder="Enter your comment..." [(ngModel)]="answer.txt">
             </div>
             <ng-template #singleChoiceBlock>
                 <mat-radio-group [(ngModel)]="currAnswerScore" (change)="onToggleChoice()" #choice="ngModel" required>
                     <mat-radio-button *ngFor="let choice of answer.choices; trackBy: trackElement" [value]="choice.score" class="example-margin">{{choice.title}}</mat-radio-button>
                 </mat-radio-group>
                 <small [hidden]="choice.valid || (choice.pristine && !formVal.submitted)">Mandatory field. Please complete.</small>
-                <!-- <input type="text" id="choice-text" placeholder="Enter your comment..." [(ngModel)]=""> -->
             </ng-template>
         </section>
     </mat-card-content>

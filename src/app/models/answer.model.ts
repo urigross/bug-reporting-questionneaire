@@ -4,5 +4,6 @@ export interface Answer {
     id: string,
     score: number,
     isDeleted: boolean,
-    choices: Choice[]   
+    choices: Choice[],
+    txt?: string   
 }

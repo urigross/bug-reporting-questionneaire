@@ -3,9 +3,6 @@ import { Question } from 'src/app/models/question.model';
 import { Choice } from 'src/app/models/choice.model';
 import { Answer } from 'src/app/models/answer.model';
 import { ScoreService } from 'src/app/services/score.service';
-
-
-
 @Component({
   selector: 'app-question-preview',
   templateUrl: './question-preview.component.html',
@@ -29,10 +26,7 @@ export class QuestionPreviewComponent implements OnInit {
       isDeleted: false, 
       choices: []
   };
-
-
   constructor(private scoreService: ScoreService) { }
-
   ngOnInit(): void {
     this.answer.choices = JSON.parse(JSON.stringify(this.question.choices));
 
