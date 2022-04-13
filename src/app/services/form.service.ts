@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Answer } from '../models/answer.model';
-import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -11,16 +10,15 @@ export class FormService {
   private _answers$ = new BehaviorSubject<Answer[]>([]);
   private _questionsNum$ = new BehaviorSubject<number>(0);
 
-  constructor(private httpClient: HttpClient) { }
-
-    saveAnswer(answer: Answer): void {
+  constructor() { }
+  saveAnswer(answer: Answer): void {
     var answers: Answer[] = this._answers$.getValue();
     const choiceIdx: number = answers.findIndex(_choice => _choice.id === answer.id);
-    choiceIdx === -1 ? this._add(answer, answers) : this._edit(answer, answers, choiceIdx); 
-    console.log('answers after save:',this._answers$.getValue())
+    choiceIdx === -1 ? this._add(answer, answers) : this._edit(answer, answers, choiceIdx);
+    console.log('answers after save:', this._answers$.getValue())
   }
 
-  getSubmittedChoices():Answer[]{
+  getSubmittedAnswers(): Answer[] {
     return this._answers$.getValue();
   }
 
@@ -39,10 +37,9 @@ export class FormService {
     this._answers$.next(choices);
   }
 
-  private async _add(answerToAdd: Answer, choices: Answer[]): Promise<void> {
+  private _add(answerToAdd: Answer, choices: Answer[]): void {
     choices.push(answerToAdd);
     this._answers$.next(choices);
-    await this._saveAnsToJSON(answerToAdd);
   }
 
   addQuestionsNum(queNum: number): void {
@@ -57,27 +54,4 @@ export class FormService {
     const submittedChoicesNum: number = this._answers$.getValue().length;
     return submittedChoicesNum / this._questionsNum$.getValue() * 100;
   }
-  private async _saveAnsToJSON(answer:Answer) {
-    // TODO: Add error catching
-    const ANSWERS_URL = "http://localhost:3000/answers";
-    this.httpClient.post<any>(ANSWERS_URL, answer).subscribe(data => {
-    })
-  }
-
-  private async _addChoiceToJSON(answer:Answer) {
-    answer
-    // TODO: Add error catching
-    const ANSWERS_URL = "http://localhost:3000/answers/..................";
-    this.httpClient.post<any>(ANSWERS_URL, answer).subscribe(data => {
-    })
-  }
-
-  private async _updateAnsAtJSON(answer:Answer) {
-    // TODO: Add error catching
-    const ANSWERS_URL = `http://localhost:3000/answers/${answer.id}`;
-    this.httpClient.patch<any>(ANSWERS_URL, {score: answer.score}).subscribe(data => {
-    })
-  }
 }
-
-
