@@ -32,9 +32,9 @@ export class FormService {
     choices.splice(idx, 1);
   }
 
-  private _edit(choiceToEdit: Answer, choices: Answer[], idx: number): void {
-    choices.splice(idx, 1, choiceToEdit);
-    this._answers$.next(choices);
+  private _edit(answerToEdit: Answer, answers: Answer[], idx: number): void {
+    answers.splice(idx, 1, answerToEdit);
+    this._answers$.next(answers);
   }
 
   private _add(answerToAdd: Answer, choices: Answer[]): void {
