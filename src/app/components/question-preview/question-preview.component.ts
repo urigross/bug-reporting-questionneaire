@@ -22,28 +22,32 @@ export class QuestionPreviewComponent implements OnInit {
   };
   @Input() formVal:any;
   @Output() onEmitAnswer = new EventEmitter<Answer>();
-  choices: Choice[] = [];
-  currAnswerScore!: number;
-  Answer!: Answer;
-  deleteChoice: boolean = false;
+  currAnswerScore!: number; // Added this varaible becase Radio buttons falsy Rendering with value of 0
+  answer: Answer  = {
+    id:'', 
+      score: 0, 
+      isDeleted: false, 
+      choices: []
+  };
 
 
   constructor(private scoreService: ScoreService) { }
 
   ngOnInit(): void {
-    this.choices = JSON.parse(JSON.stringify(this.question.choices));
+    this.answer.choices = JSON.parse(JSON.stringify(this.question.choices));
+
   }
   onToggleChoice():void{
     if (this.question.isMultiChoice){
-      this.currAnswerScore = this.scoreService.getScoreForMultipleQuestion(this.choices);
-      this.deleteChoice = !this._isChoiceChecked(this.choices);
+      this.currAnswerScore = this.scoreService.getScoreForMultipleQuestion(this.answer.choices);
+      this.answer.isDeleted = !this._isChoiceChecked(this.answer.choices);
     }
-    this.Answer = {
-      id:this.question.id, 
-      score: this.currAnswerScore, 
-      isDeleted: this.deleteChoice, 
-      choices: this.choices}
-    this.onEmitAnswer.emit(this.Answer);
+    else{
+      this.answer.isDeleted = false;
+    }
+    this.answer.id = this.question.id;
+    this.answer.score = this.currAnswerScore;
+    this.onEmitAnswer.emit(this.answer);
   }
   private _isChoiceChecked(choices:Choice[]):boolean{
     return choices.some(choices=>choices.isSelected)
