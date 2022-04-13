@@ -21,6 +21,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 //forms
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -51,7 +52,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatCardModule,
     MatRadioModule,
     MatProgressBarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+      units: '%',
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

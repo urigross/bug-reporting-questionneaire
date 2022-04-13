@@ -4,12 +4,12 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <h2>Bug reporting questionnaire</h2>
-                <form (submit)="onCalc()" #formVal="ngForm">
+                <form (submit)="onSubmit()" #formVal="ngForm">
                     <app-questions-list 
                     *ngIf="questions" 
                     [questions]="questions" 
                     [formVal]="formVal" 
-                    (choiceToSubmit)="onEmitChoice($event)"
+                    (answerToEmit)="onEmitAnswer($event)"
                      reqiured>
                     </app-questions-list>
                 <button [disabled]="!isFormCompleted">Save</button>

@@ -50,6 +50,12 @@ nav {
     .mat-progress-bar{
         height: 5px;
         border-radius: 2px;
+        margin-bottom: 10px;
+    }
+    .circle-progress-container{
+        display: flex;
+        justify-content: center;
+        
     }
 }
 

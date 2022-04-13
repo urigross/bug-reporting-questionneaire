@@ -1,45 +1,45 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ChoiceToSubmit } from '../models/choiceToSubmit.model';
+import { Answer } from '../models/answer.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
-  private _choices$ = new BehaviorSubject<ChoiceToSubmit[]>([]);
+  private _answers$ = new BehaviorSubject<Answer[]>([]);
   private _questionsNum$ = new BehaviorSubject<number>(0);
 
   constructor() { }
-
-  saveChoice(choice: ChoiceToSubmit): void {
-    var choices: ChoiceToSubmit[] = this._choices$.getValue();
-    const choiceIdx: number = choices.findIndex(_choice => _choice._id === choice._id);
-    choiceIdx === -1 ? this._add(choice, choices) : this._edit(choice, choices, choiceIdx);
-    console.log('CHOICES:', this._choices$.getValue(), 'IDX', choiceIdx);
+  saveAnswer(answer: Answer): void {
+    var answers: Answer[] = this._answers$.getValue();
+    const choiceIdx: number = answers.findIndex(_choice => _choice.id === answer.id);
+    choiceIdx === -1 ? this._add(answer, answers) : this._edit(answer, answers, choiceIdx);
+    console.log('answers after save:', this._answers$.getValue())
   }
 
-  getSubmittedChoices():ChoiceToSubmit[]{
-    return this._choices$.getValue();
+  getSubmittedAnswers(): Answer[] {
+    return this._answers$.getValue();
   }
 
-  deleteChoice(choice: ChoiceToSubmit): void {
-    var choices: ChoiceToSubmit[] = this._choices$.getValue();
-    const choiceIdx: number = choices.findIndex(_choice => _choice._id === choice._id);
+  deleteAnswer(answer: Answer): void {
+    var choices: Answer[] = this._answers$.getValue();
+    const choiceIdx: number = choices.findIndex(_choice => _choice.id === answer.id);
     choiceIdx === -1 ? console.log('Error, could not find the Choice in form Service', choices) : this._remove(choices, choiceIdx);
   }
 
-  private _remove(choices: ChoiceToSubmit[], idx: number): void {
+  private _remove(choices: Answer[], idx: number): void {
     choices.splice(idx, 1);
   }
 
-  private _edit(choiceToEdit: ChoiceToSubmit, choices: ChoiceToSubmit[], idx: number): void {
-    choices.splice(idx, 1, choiceToEdit);
-    this._choices$.next(choices);
+  private _edit(answerToEdit: Answer, answers: Answer[], idx: number): void {
+    answers.splice(idx, 1, answerToEdit);
+    this._answers$.next(answers);
   }
 
-  private _add(choiceToAdd: ChoiceToSubmit, choices: ChoiceToSubmit[]): void {
-    choices.push(choiceToAdd);
-    this._choices$.next(choices);
+  private _add(answerToAdd: Answer, choices: Answer[]): void {
+    choices.push(answerToAdd);
+    this._answers$.next(choices);
   }
 
   addQuestionsNum(queNum: number): void {
@@ -47,13 +47,11 @@ export class FormService {
   }
 
   isFormCompleted(): boolean {
-    console.log('this._questionsNum$', this._questionsNum$.getValue(), 'this._choices$', this._choices$.getValue().length)
-    return this._questionsNum$.getValue() === this._choices$.getValue().length;
+    console.log('this._questionsNum$', this._questionsNum$.getValue(), 'this._choices$', this._answers$.getValue().length)
+    return this._questionsNum$.getValue() === this._answers$.getValue().length;
   }
   getFormCompletionRate(): number {
-    const submittedChoicesNum: number = this._choices$.getValue().length;
+    const submittedChoicesNum: number = this._answers$.getValue().length;
     return submittedChoicesNum / this._questionsNum$.getValue() * 100;
   }
 }
-
-
