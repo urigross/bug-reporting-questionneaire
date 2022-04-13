@@ -58,7 +58,6 @@ export class FormService {
     return submittedChoicesNum / this._questionsNum$.getValue() * 100;
   }
   private async _saveAnsToJSON(answer:Answer) {
-    answer
     // TODO: Add error catching
     const ANSWERS_URL = "http://localhost:3000/answers";
     this.httpClient.post<any>(ANSWERS_URL, answer).subscribe(data => {
