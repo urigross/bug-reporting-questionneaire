@@ -14,18 +14,14 @@ export class HttpService {
     const objToJSON: object = { "id": 1, 'answers': answers };
     let isUpdate:boolean = await this.getDatabaseId();
     if (isUpdate) {
-      console.log('answers update')
       this._update(answers);
     }
     else {
-      console.log('answers new save')
       this._save(objToJSON);
     }
-    // TODO: Add error catching
   }
 
   async getDatabaseId(): Promise<boolean>{
-    // TODO: Add error catching
     const ANSWERS_URL = "http://localhost:3000/bugReportForm";
     const ans = await this.httpClient.get(ANSWERS_URL).pipe(
       catchError(this.handleError)
