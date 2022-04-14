@@ -1,0 +1,20 @@
+<div class="progress-bar-container">
+    <label for="progress-bar">Form Progress</label>
+    <mat-progress-bar mode="determinate" value="{{progressBarScore}}"></mat-progress-bar>
+    <div class="circle-progress-container">
+        <circle-progress
+        [percent]="formScore"
+        [units]="'pts.'"
+        [radius]="50"
+        [outerStrokeWidth]="8"
+        [innerStrokeWidth]="4"
+        [outerStrokeColor]="'#78C000'"
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="true"
+        [animationDuration]="1000"
+        [subtitle]="'Score'"
+      ></circle-progress>
+    </div>
+    <!-- <label for="form-score">Score: </label>
+    <pre>{{formScore}}</pre> -->
+</div>

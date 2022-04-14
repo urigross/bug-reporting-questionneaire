@@ -8,7 +8,7 @@ import { Question } from 'src/app/models/question.model';
   styleUrls: ['./questions-list.component.scss']
 })
 export class QuestionsListComponent implements OnInit {
-@Input() questions :Question[] = [];
+@Input() questions! :Question[] | null;
 @Input() formVal :any;
 @Output() answerToEmit = new EventEmitter<Answer>();
 constructor() { }

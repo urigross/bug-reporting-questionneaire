@@ -5,6 +5,7 @@ export interface Question {
     isMultiChoice: boolean,
     title: string,
     question: string,
+    isHasAnswer:boolean,
     choices: Choice[]
     
 }

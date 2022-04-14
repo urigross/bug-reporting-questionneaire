@@ -4,15 +4,23 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <h2>Bug reporting questionnaire</h2>
+                <app-dashboard></app-dashboard>
+                <div class="filter-container">
+                    <app-answer-filter></app-answer-filter>
+                </div>
                 <form (submit)="onSubmit()" #formVal="ngForm">
                     <app-questions-list 
-                    *ngIf="questions" 
-                    [questions]="questions" 
+                    *ngIf="questions$ | async" 
+                    [questions]="questions$ | async" 
                     [formVal]="formVal" 
                     (answerToEmit)="onEmitAnswer($event)"
                      reqiured>
                     </app-questions-list>
-                <button [disabled]="!isFormCompleted">Save</button>
+                    <div class="send-button-container">
+                        <button mat-fab color="wheat" aria-label="icon button with a send icon">
+                          <mat-icon>send</mat-icon>
+                        </button>
+                      </div>
                 </form>
             </div>
         </div>

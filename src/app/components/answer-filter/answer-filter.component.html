@@ -1,0 +1,15 @@
+<section class="filter-section">
+    <label class="filter-done-answers-margin">Show:</label>
+    <mat-radio-group [(ngModel)]="filterBy.isHasAnswer" (ngModelChange)="onSetFilter()">
+      <mat-radio-button class="filter-done-answers-margin" value="all">
+        All questions
+      </mat-radio-button>
+      <mat-radio-button class="filter-done-answers-margin" value="false">
+        Unanswered questions
+      </mat-radio-button>
+      <mat-radio-button class="filter-done-answers-margin" value="true">
+        Answered questions
+      </mat-radio-button>
+    </mat-radio-group>
+    <input type="text" id="title" name="term" [(ngModel)]="filterBy.term" (ngModelChange)="onSetFilter()" placeholder="Text to search...">
+  </section>
