@@ -16,9 +16,7 @@ import { BehaviorSubject, observable, Observable, ReplaySubject } from 'rxjs';
   styleUrls: ['./questionnaire-home.component.scss'],
 })
 export class QuestionnaireHomeComponent implements OnInit {
-  // public questions: Question[] = [];
   questions$!: Observable<Question[]>;
-  // questions$ = this._questions$.asObservable();
 
   constructor(
     private questionService: QuestionService,
@@ -41,9 +39,7 @@ export class QuestionnaireHomeComponent implements OnInit {
       behavior: 'smooth'
     });
   }
-  // get isFormCompleted() {
-  //   return this.formService.isFormCompleted();
-  // }
+
   async ngOnInit(): Promise<void> {
     var questionsData: Question[] = await this.questionService.questionsQuery();
     this.filterService.setQuestionToFilter(questionsData)

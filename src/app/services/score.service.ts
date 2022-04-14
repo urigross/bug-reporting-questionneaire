@@ -18,11 +18,9 @@ export class ScoreService {
   } 
 
   calcFormScore(choices: Answer[]):void{
-    console.log(choices);
     const formScore: number = choices.reduce((sum, choice)=>{
       return sum + choice.score;
     },0);
-    console.log(formScore);
     this._formScore$.next(formScore);
   }
 

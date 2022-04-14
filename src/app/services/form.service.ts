@@ -14,7 +14,6 @@ export class FormService {
     var answers: Answer[] = this._answers$.getValue();
     const choiceIdx: number = answers.findIndex(_choice => _choice.id === answer.id);
     choiceIdx === -1 ? this._add(answer, answers) : this._edit(answer, answers, choiceIdx);
-    console.log('answers after save:', this._answers$.getValue())
   }
 
   getSubmittedAnswers(): Answer[] {
@@ -46,7 +45,6 @@ export class FormService {
   }
 
   isFormCompleted(): boolean {
-    console.log('this._questionsNum$', this._questionsNum$.getValue(), 'this._choices$', this._answers$.getValue().length)
     return this._questionsNum$.getValue() === this._answers$.getValue().length;
   }
   getFormCompletionRate(): number {

@@ -51,7 +51,6 @@ export class FilterService {
   private _filterByTerm(questions: Question[], term: string): Question[]{
     return questions.filter(quesion=> 
       quesion.question.toLocaleLowerCase().includes(term) 
-      // TODO: Add search within answers
     );
   }
 

@@ -11,7 +11,6 @@ export class QuestionService {
   constructor(private httpClient: HttpClient, private formService: FormService) { }
 
   async questionsQuery(): Promise<Question[]> {
-    // TODO: Add error catching
     const QUESTIONS_URL = "../../assets/data/questions.json";
     const ans = await this.httpClient.get(QUESTIONS_URL);
     return new Promise(resolve => {
