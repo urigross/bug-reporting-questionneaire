@@ -8,14 +8,12 @@ import { ScoreService } from 'src/app/services/score.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
-  constructor(private formService: FormService, private scoreService: ScoreService){}
-
+export class HeaderComponent{
+  constructor() { }
   faBars = faBars;
   faTimes = faTimes;
   mobileMenuOn= false;
-  formScore$!: Observable<number>;
-  formScore:number = 0;
+ 
 // Because the dual layout (mobile + desktop) of menu - Couldn't use toggleMenu
   onOpenMenu(){
     this.mobileMenuOn = true;
@@ -23,25 +21,9 @@ export class HeaderComponent implements OnInit{
   onCloseMenu(){
     this.mobileMenuOn = false;
   }
-  get progressBarScore(){
-    return this.formService.getFormCompletionRate();
-  }
-  formatSubtitle = (percent: number) : string => {
-    if(percent >= 100){
-      return "Congratulations!"
-    }else if(percent >= 50){
-      return "Half"
-    }else if(percent > 0){
-      return "Just began"
-    }else {
-      return "Not started"
-    }
-  }
 
-  ngOnInit(): void {
-    this.formScore$ = this.scoreService.getFormScore();
-    this.formScore$.subscribe(score=>this.formScore = score)
-  }
+
+
 }
 
 

@@ -22,8 +22,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button'
+
 //forms
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AnswerFilterComponent } from './components/answer-filter/answer-filter.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -38,7 +43,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AboutComponent,
     QuestionnaireHomeComponent,
     QuestionsListComponent,
-    QuestionPreviewComponent
+    QuestionPreviewComponent,
+    AnswerFilterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +60,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatRadioModule,
     MatProgressBarModule,
     MatCheckboxModule,
+    MatIconModule,
+    MatButtonModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,

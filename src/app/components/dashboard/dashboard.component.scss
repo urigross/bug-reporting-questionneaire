@@ -1,0 +1,22 @@
+.mat-progress-bar{
+    height: 5px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.circle-progress-container{
+    display: flex;
+    justify-content: center;
+    
+}
+.progress-bar-container{
+    margin: 0 auto;
+    width: 200px;
+}
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: crimson;
+    
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: wheat;
+}

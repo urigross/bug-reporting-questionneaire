@@ -1,13 +1,12 @@
 <nav>
     <div class="nav-container max-width">
         <div class="logo-container">
-            <h1 class="logo">Generic<span>App</span></h1>
+            <h1 class="logo">MasterBug</h1>
             <span class="logo-span">By Uri Gross</span>
         </div>
-            
         <ul [ngClass]="mobileMenuOn?'active':''">
             <li>
-                <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="onCloseMenu()">Generic<span>App</span></a>
+                <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="onCloseMenu()">Bug reporting</a>
             </li>
             <li>
                 <a routerLink="/about" routerLinkActive="active" (click)="onCloseMenu()">About</a>
@@ -20,24 +19,5 @@
             </ng-template>
         </div>
     </div>
-    <div class="progress-bar-container">
-        <label for="progress-bar">Form Progress</label>
-        <mat-progress-bar mode="determinate" value="{{progressBarScore}}"></mat-progress-bar>
-        <div class="circle-progress-container">
-            <circle-progress
-            [percent]="formScore"
-            [units]="'pts.'"
-            [radius]="50"
-            [outerStrokeWidth]="8"
-            [innerStrokeWidth]="4"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="1000"
-            [subtitle]="'Score'"
-          ></circle-progress>
-        </div>
-        <!-- <label for="form-score">Score: </label>
-        <pre>{{formScore}}</pre> -->
-    </div>
+
 </nav>

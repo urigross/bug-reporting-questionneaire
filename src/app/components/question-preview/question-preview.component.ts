@@ -15,6 +15,7 @@ export class QuestionPreviewComponent implements OnInit {
     isMultiChoice: false,
     title: '',
     question: '',
+    isHasAnswer:false,
     choices: []
   };
   @Input() formVal:any;
@@ -43,9 +44,15 @@ export class QuestionPreviewComponent implements OnInit {
     this.answer.score = this.currAnswerScore;
     this.onEmitAnswer.emit(this.answer);
   }
+
+  public isAnyChoiceChecked():boolean{
+    return this._isChoiceChecked(this.answer.choices);
+  }
   private _isChoiceChecked(choices:Choice[]):boolean{
     return choices.some(choices=>choices.isSelected)
   }
+
+  
   trackElement(index: number, element: any) {
     return element ? element.guid : null
   }

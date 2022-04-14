@@ -6,6 +6,7 @@
             "isMultiChoice": false,
             "title": "Question 1",
             "question": "What kind of bug is it?",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "production-bug",
@@ -25,6 +26,7 @@
             "isMultiChoice": false,
             "title": "Question 2",
             "question": "Is it preventing immediate whole site operating?",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "yes",
@@ -44,6 +46,7 @@
             "isMultiChoice": false,
             "title": "Question 3",
             "question": "Is it a user interface related bug?",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "yes",
@@ -63,6 +66,7 @@
             "isMultiChoice": false,
             "title": "Question 4",
             "question": "Is it user experience bug ?",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "yes",
@@ -82,6 +86,7 @@
             "isMultiChoice": false,
             "title": "Question 5",
             "question": "Is it a currency rendering problem related?",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "yes",
@@ -101,6 +106,7 @@
             "isMultiChoice": false,
             "title": "Question 6",
             "question": "Is occurs on mobile devices?",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "yes",
@@ -120,6 +126,7 @@
             "isMultiChoice": false,
             "title": "Question 7",
             "question": "Is occurs on desktop devices?",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "yes",
@@ -139,6 +146,7 @@
             "isMultiChoice": false,
             "title": "Question 8",
             "question": "The bug occurs on a page that is:",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "hero-page",
@@ -163,6 +171,7 @@
             "isMultiChoice": true,
             "title": "Question 9",
             "question": "Are you:",
+            "isHasAnswer":false,
             "choices": [
                 {
                     "name": "mastercard-employee",

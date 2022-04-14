@@ -3,7 +3,7 @@
     {
       "0": {
         "id": "r3kfkf",
-        "score": 20,
+        "score": 10,
         "isDeleted": false,
         "choices": [
           {
@@ -20,7 +20,7 @@
       },
       "1": {
         "id": "sdij44",
-        "score": 30,
+        "score": 0,
         "isDeleted": false,
         "choices": [
           {
@@ -37,7 +37,7 @@
       },
       "2": {
         "id": "sdsj455",
-        "score": 5,
+        "score": 0,
         "isDeleted": false,
         "choices": [
           {
@@ -54,7 +54,7 @@
       },
       "3": {
         "id": "jkhk50",
-        "score": 5,
+        "score": 0,
         "isDeleted": false,
         "choices": [
           {
@@ -71,7 +71,7 @@
       },
       "4": {
         "id": "jkfj9",
-        "score": 10,
+        "score": 0,
         "isDeleted": false,
         "choices": [
           {
@@ -88,7 +88,7 @@
       },
       "5": {
         "id": "0kh65",
-        "score": 5,
+        "score": 0,
         "isDeleted": false,
         "choices": [
           {
@@ -105,7 +105,7 @@
       },
       "6": {
         "id": "dbk66e499",
-        "score": 5,
+        "score": 0,
         "isDeleted": false,
         "choices": [
           {
@@ -144,7 +144,7 @@
       },
       "8": {
         "id": "dsdfss11",
-        "score": 5,
+        "score": 1,
         "isDeleted": false,
         "choices": [
           {
@@ -158,18 +158,17 @@
             "name": "programmer",
             "title": "A Programmer",
             "score": 2,
-            "isSelected": true,
+            "isSelected": false,
             "id": "salkdj3"
           },
           {
             "name": "security-clearance-holder",
             "title": "Holds a security clearance",
             "score": 1,
-            "isSelected": true,
+            "isSelected": false,
             "id": "salkdj3"
           }
-        ],
-        "txt": "Remark"
+        ]
       },
       "id": 1
     }

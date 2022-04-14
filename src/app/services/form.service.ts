@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Answer } from '../models/answer.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
   private _answers$ = new BehaviorSubject<Answer[]>([]);
   private _questionsNum$ = new BehaviorSubject<number>(0);
-
+  
   constructor() { }
   saveAnswer(answer: Answer): void {
     var answers: Answer[] = this._answers$.getValue();
