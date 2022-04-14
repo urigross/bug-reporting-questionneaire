@@ -1,4 +1,10 @@
+mat-card{
+  // border-radius: 10px;
+ margin: -5px 0;
+}
 .multi-choice-container{
+  display: flex;
+ 
   mat-checkbox{
     margin-right: 15px;
   }

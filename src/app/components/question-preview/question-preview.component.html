@@ -3,24 +3,30 @@
         <h2 class="question-title">{{question.title}}</h2>
         <section class="question-section">
             <label class="question-margin">{{question.question}}</label>
-            <div class="multi-choice-container" *ngIf="question.isMultiChoice; else singleChoiceBlock">
-                <div
-                *ngFor="let choice of answer.choices;
-                trackBy: trackElement; let i = index">
-                <mat-checkbox 
-                [(ngModel)]="choice.isSelected" 
-                (change)="onToggleChoice()" #choice.isSelected="ngModel">
-                {{choice.title}}
-                </mat-checkbox>
-                <mat-error [hidden]="isAnyChoiceChecked() || !formVal.submitted">Mandatory field. Please complete.</mat-error>
-            </div>
-                <input type="text" id="choice-text" placeholder="Enter your comment..." [(ngModel)]="answer.txt">
+            <div *ngIf="question.isMultiChoice; else singleChoiceBlock">
+                <div class="multi-choice-container">
+                    <div class="choice-container"
+                    *ngFor="let choice of answer.choices;
+                    trackBy: trackElement; let i = index">
+                        <mat-checkbox 
+                        [(ngModel)]="choice.isSelected" 
+                        (change)="onToggleChoice()" #choice.isSelected="ngModel">
+                        {{choice.title}}
+                        </mat-checkbox>
+                    </div>
+                    <input type="text" id="choice-text" placeholder="Enter your comment..." [(ngModel)]="answer.txt">
+                </div>
+                <div class="error-container">
+                    <mat-error [hidden]="isAnyChoiceChecked() || !formVal.submitted">Mandatory. Please complete.</mat-error>
+                </div>
             </div>
             <ng-template #singleChoiceBlock>
-                <mat-radio-group [(ngModel)]="currAnswerScore" (change)="onToggleChoice()" #choice="ngModel" required>
-                    <mat-radio-button *ngFor="let choice of answer.choices; trackBy: trackElement" [value]="choice.score" class="example-margin">{{choice.title}}</mat-radio-button>
+                <div class="single-choice-container">
+                    <mat-radio-group [(ngModel)]="currAnswerScore" (change)="onToggleChoice()" #choice="ngModel" required>
+                        <mat-radio-button *ngFor="let choice of answer.choices; trackBy: trackElement" [value]="choice.score" class="example-margin">{{choice.title}}</mat-radio-button>
+                    </mat-radio-group>
                     <mat-error [hidden]="choice.valid || (choice.pristine && !formVal.submitted)">Mandatory field. Please complete.</mat-error>
-                </mat-radio-group>
+                </div>
             </ng-template>
         </section>
     </mat-card-content>
