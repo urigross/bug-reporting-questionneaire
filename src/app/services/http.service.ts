@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Answer } from '../models/answer.model';
 import { take, catchError, throwError } from 'rxjs';
 
@@ -12,6 +12,7 @@ export class HttpService {
 
   async saveAnswers(answers: Answer[]) {
     const objToJSON: object = { "id": 1, 'answers': answers };
+    // If DB id exits - update else save DB to JSON.
     let isUpdate:boolean = await this.getDatabaseId();
     if (isUpdate) {
       this._update(answers);
@@ -20,7 +21,7 @@ export class HttpService {
       this._save(objToJSON);
     }
   }
-
+// Check is DB exists by fetching it's id.
   async getDatabaseId(): Promise<boolean>{
     const ANSWERS_URL = "http://localhost:3000/bugReportForm";
     const ans = await this.httpClient.get(ANSWERS_URL).pipe(
