@@ -11,8 +11,8 @@ export class QuestionService {
   constructor(private httpClient: HttpClient, private formService: FormService) { }
 
   async questionsQuery(): Promise<Question[]> {
-    const QUESTIONS_URL = "../../assets/data/questions.json";
-    const ans = await this.httpClient.get(QUESTIONS_URL);
+    const QUESTIONS_URL = "https://627695de15458100a6b0b7e5.mockapi.io/bugReport/questions";
+    const ans = this.httpClient.get(QUESTIONS_URL);
     return new Promise(resolve => {
       ans.pipe(
         take(1)
