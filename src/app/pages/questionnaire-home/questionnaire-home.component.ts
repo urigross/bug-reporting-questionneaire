@@ -33,6 +33,7 @@ export class QuestionnaireHomeComponent implements OnInit {
     const answersToSubmit: Answer[] = this.formService.getSubmittedAnswers();
     this.scoreService.calcFormScore(answersToSubmit);
     this.httpService.saveAnswers(answersToSubmit);
+    console.log('answersToSubmit',answersToSubmit);
     window.scroll({
       top: 0,
       left: 0,
